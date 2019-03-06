@@ -6,7 +6,7 @@
     <button type="button" name="button" @click="increment(13)">点击+</button>
     <button type="button" name="button" @click="decrease(5)">点击-</button>
     <p>{{this.$store.state.d}}</p>
-    <p>moduleA:{{this.$store.state.a.e}} / {{this.$store.state.num}}</p>
+    <p>moduleA:{{this.$store.state.a.e}} / {{this.$store.state.num}} ~~</p>
     <p>moduleB:{{this.$store.state.b.e}}</p>
     <draggable element="ul" v-model="list">
          <li v-for="item in list">{{item.name}}</li>
