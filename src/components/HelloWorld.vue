@@ -1,16 +1,35 @@
 <template lang="html">
   <div class="">
-    <child  v-bind="msg" >
+    <child v-bind="msg">
       <template
         v-if="isTrue"
-        v-slot:header="slotProp">
-        My name is <sup>{{slotProp.list[1].name}}</sup>
+        v-slot:header="slotProp"
+      >
+        My name is <sup>{{ slotProp.list[1].name }}</sup>
       </template>
-      <template v-else v-slot:header="slotProp">His name is {{slotProp.list[0].name}}</template>
-      <template v-slot:footer="slotProp">Age {{slotProp.num}}</template>
+      <template
+        v-else
+        v-slot:header="slotProp"
+      >
+        His name is {{ slotProp.list[0].name }}
+      </template>
+      <template v-slot:footer="slotProp">
+        Age {{ slotProp.num }}
+      </template>
     </child>
-    <p ref="btn" v-if="showChild">测试!!!!</p>
-    <button @click="getData" type="button" name="button">nextTick</button>
+    <p
+      v-if="showChild"
+      ref="btn"
+    >
+      测试!!!!
+    </p>
+    <button
+      type="button"
+      name="button"
+      @click="getData"
+    >
+      nextTick
+    </button>
   </div>
 </template>
 

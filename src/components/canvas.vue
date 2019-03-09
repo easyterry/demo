@@ -1,10 +1,18 @@
 <template lang="html">
   <div>
     <div class="btn-container">
-      <div id="btn1" class="btn" @click="outputValue" >
+      <div
+        id="btn1"
+        class="btn"
+        @click="outputValue"
+      >
         按钮
       </div>
-      <div id="btn2" class="btn" @click="decreaseValue">
+      <div
+        id="btn2"
+        class="btn"
+        @click="decreaseValue"
+      >
         按钮2
       </div>
     </div>
@@ -12,21 +20,15 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations } from 'vuex';
 
 export default {
   data() {
     return {
 
-    }
+    };
   },
   methods: {
-    checkedOne () {
-
-    },
-    checkedTwo () {
-
-    },
     ...mapActions([
       'decreaseValue'
     ]),
@@ -34,7 +36,7 @@ export default {
       'outputValue'
     ])
   }
-}
+};
 </script>
 
 <style lang="css" scoped>

@@ -4,7 +4,7 @@ module.exports = {
     parser: 'babel-eslint',
     ecmaVersion: 6
   },
-  extends: ['plugin:vue/essential', 'airbnb-base', 'eslint:recommended'],
+  extends: ['plugin:vue/recommended', 'airbnb-base', 'eslint:recommended'],
   env: {
     browser: true,
     es6: true
@@ -30,9 +30,11 @@ module.exports = {
 
     'no-alert': 'error',
 
-    'semi': 1,
+    'semi': 2,
 
-    'arrow-spacing': ['error', { "before": true, "after": true }]
+    'arrow-spacing': ['error', { "before": true, "after": true }],
+
+    'import/no-extraneous-dependencies': 0
 
   }
 }

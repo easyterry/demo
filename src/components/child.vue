@@ -1,33 +1,67 @@
 <template lang="html">
   <div class="">
-    <component is="my-canvas" />
-    <slot name="footer" :num="c">{{ c }}</slot>
-    <slot name="header" :list="list">{{ list[0] }}</slot>
-    <button type="button" name="button" @click="increment(13)">点击+</button>
-    <button type="button" name="button" @click="decrease(5)">点击-</button>
-    <p>{{this.$store.state.d}}</p>
-    <p>moduleA:{{this.$store.state.a.e}} / {{this.$store.state.num}} </p>
-    <p>moduleB:{{this.$store.state.b.e}}</p>
-    <draggable element="ul" v-model="list">
-         <li v-for="item in list">{{item.name}}</li>
+    <component :is="my-canvas" />
+    <slot
+      name="footer"
+      :num="c"
+    >
+      {{ c }}
+    </slot>
+    <slot
+      name="header"
+      :list="list"
+    >
+      {{ list[0] }}
+    </slot>
+    <button
+      type="button"
+      name="button"
+      @click="increment(13)"
+    >
+      点击+
+    </button>
+    <button
+      type="button"
+      name="button"
+      @click="decrease(5)"
+    >
+      点击-
+    </button>
+    <p>{{ this.$store.state.d }}</p>
+    <p>moduleA:{{ this.$store.state.a.e }} / {{ this.$store.state.num }} </p>
+    <p>moduleB:{{ this.$store.state.b.e }}</p>
+    <draggable
+      v-model="list"
+      element="ul"
+    >
+      <li
+        v-for="(item,index) in list"
+        :key="index"
+      >
+        {{ item.name }}
+      </li>
     </draggable>
-    {{list}}
+    {{ list }}
   </div>
-
 </template>
 
 <script>
 import {
   mapActions,
   mapMutations
-} from 'vuex'
+} from 'vuex';
 
-import MyCanvas from '#/canvas'
+import MyCanvas from '#/canvas';
 
-import path from 'path'
+import path from 'path';
 
-import draggable from 'vuedraggable'
+import draggable from 'vuedraggable';
+
 export default {
+  components: {
+    draggable,
+    MyCanvas
+  },
   props: ['a', 'b'],
   data() {
     return {
@@ -46,14 +80,10 @@ export default {
       }, {
         name: "Johnson"
       }],
-    }
+    };
   },
   created() {
     console.log(path.resolve(__dirname, 'Cao', './Ri'));
-  },
-  components: {
-    draggable,
-    MyCanvas
   },
   methods: {
     ...mapActions([
@@ -63,7 +93,7 @@ export default {
       'decrease'
     ])
   }
-}
+};
 </script>
 
 <style lang="css">

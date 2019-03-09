@@ -8,6 +8,6 @@ const moduleB = {
   mutations: {
 
   }
-}
+};
 
-export default moduleB
+export default moduleB;
