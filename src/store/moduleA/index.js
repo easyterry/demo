@@ -8,6 +8,6 @@ const moduleA = {
   actions: {
 
   }
-}
+};
 
-export default moduleA
+export default moduleA;
