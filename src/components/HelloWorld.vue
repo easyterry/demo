@@ -13,7 +13,6 @@ export default {
     data() {
         return {
             count: 0,
-            msg: 123,
             sendMsg: '',
             ws: ''
         }
@@ -22,7 +21,7 @@ export default {
         let host = window.location.host
         this.ws = new WebSocket(`ws://${host}:8001`);
         this.ws.onopen=function(){  // onopen 连接触发 //
-           console.log("websocket open", data);
+           console.log("websocket open");
          }
          this.ws.onmessage = function(e){
               document.getElementById("recv").innerHTML = e.data;
