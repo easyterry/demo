@@ -19,7 +19,8 @@ export default {
         }
     },
     mounted () {
-        this.ws = new WebSocket('ws://localhost:8001');
+        let host = window.location.origin
+        this.ws = new WebSocket(`ws://${host}:8001`);
         this.ws.onopen=function(){  // onopen 连接触发 //
            console.log("websocket open", data);
          }
