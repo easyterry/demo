@@ -11,6 +11,8 @@ var server = ws.createServer(function (conn) {
     })
 }).listen(8001)
 
+console.log('连接成功', 8001);
+
 function boardcast(str){
     server.connections.forEach(function(conn){
         conn.sendText(str);

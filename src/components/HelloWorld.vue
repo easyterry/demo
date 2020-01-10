@@ -19,12 +19,14 @@ export default {
     },
     mounted () {
         let host = window.location.host
-        this.ws = new WebSocket(`ws://${host}:8001`);
+        this.ws = new WebSocket(`ws://localhost:8001`);
         this.ws.onopen=function(){  // onopen 连接触发 //
            console.log("websocket open");
+
          }
          this.ws.onmessage = function(e){
-              document.getElementById("recv").innerHTML = e.data;
+             console.log('收到');
+             document.getElementById("recv").innerHTML = e.data;
         }
     },
     methods: {
