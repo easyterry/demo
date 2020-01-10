@@ -38,7 +38,7 @@ export default {
             this.websock.send(this.sendMsg)
 		},
 		initWebsocket() {
-			const wsuri = `ws://localhost:8001` //这个地址由后端童鞋提供
+			const wsuri = `ws://${window.location.host}:8001` //这个地址由后端童鞋提供
 			this.websock = new WebSocket(wsuri);
 			this.websock.onmessage = this.webSocketOnMessage;
 			this.websock.onopen = this.websocketonopen;
