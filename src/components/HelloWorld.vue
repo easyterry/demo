@@ -2,7 +2,9 @@
     <div class="hello">
         <input type="text" name="" v-model="sendMsg">
         <button type="button" name="button" @click="handleSendMsg">发送</button>
-        <div class="" id="recv"></div>
+        <div class="" v-for="(item, index) in ws" :key="index">
+            {{item.msg}}
+        </div>
     </div>
 </template>
 
@@ -14,24 +16,21 @@ export default {
         return {
             count: 0,
             sendMsg: '',
-            ws: ''
+            ws: []
         }
     },
-    mounted () {
-        let host = window.location.host
-        this.ws = new WebSocket(`ws://localhost:8001`);
-        this.ws.onopen=function(){  // onopen 连接触发 //
-           console.log("websocket open");
-
-         }
-         this.ws.onmessage = function(e){
-             console.log('收到');
-             document.getElementById("recv").innerHTML = e.data;
-        }
-    },
+    sockets: {
+       connect: function () {
+       },
+       message: function (data) {
+          this.ws.push(data)
+       }
+   },
     methods: {
         handleSendMsg () {
-            this.ws.send(this.sendMsg);
+            this.$socket.emit('message', {
+                msg: this.sendMsg
+            })
         }
     }
 }
